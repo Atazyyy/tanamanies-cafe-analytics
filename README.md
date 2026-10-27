@@ -91,6 +91,23 @@ sudah dibersihkan. Keamanan: database dibuka **read-only**, `jalankan_sql` hanya
 Lihat [sql/queries_contoh.sql](sql/queries_contoh.sql) — omzet harian, perbandingan outlet,
 produk terlaris, pertumbuhan bulanan.
 
+### Deploy ke cloud (Streamlit Community Cloud — gratis)
+
+Dashboard ini tidak bisa di Vercel (butuh server Python aktif, bukan static site).
+Cara termudah: [Streamlit Community Cloud](https://share.streamlit.io), gratis dan langsung dari GitHub:
+
+1. Buka [share.streamlit.io](https://share.streamlit.io) → login dengan akun GitHub.
+2. Klik **New app** → pilih repo **`tanamanies-cafe-analytics`**, branch `main`,
+   main file path **`dashboard/app.py`** → **Deploy**.
+3. Selesai — dapat URL publik seperti `https://tanamanies-analytics.streamlit.app`.
+
+Saat pertama dibuka di cloud, aplikasi otomatis membangun data simulasi sendiri
+(±1–2 menit, sekali saja — hasil identik dengan lokal karena seed RNG dikunci).
+Di lokal yang sudah punya `data/tanamanies.duckdb`, auto-bootstrap ini tidak pernah dijalankan.
+
+> Catatan: MCP server tidak ikut di-deploy — ia berjalan lokal, terhubung ke AI assistant
+> di mesin yang sama dengan database-nya.
+
 ## Struktur repo
 
 ```

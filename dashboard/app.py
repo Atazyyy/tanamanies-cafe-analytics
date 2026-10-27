@@ -77,8 +77,13 @@ def scoped(start, end, outlets: tuple):
 
 
 if not DB_PATH.exists():
-    st.error("Database belum dibangun. Jalankan dulu: `python -m src.run_all --with-data`")
-    st.stop()
+    # Di cloud data belum ada -> bangun sekali di awal (deterministik, hasil sama
+    # dengan lokal karena seed RNG dikunci). Di lokal yang sudah punya DB,
+    # blok ini tidak pernah dijalankan.
+    with st.spinner("Database belum ditemukan — membangun data simulasi (sekali saja, ±1-2 menit)..."):
+        from src.run_all import main as run_pipeline_all
+        run_pipeline_all(with_data=True)
+    st.rerun()
 
 daily, outlet_list, min_date, max_date = load_daily()
 
