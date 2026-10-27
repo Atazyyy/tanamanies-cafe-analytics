@@ -1,0 +1,35 @@
+product_id,product_name,category,unit_price
+P001,Kopi Susu Aren,Kopi Susu,18000
+P002,Kopi Susu Gula Pasir,Kopi Susu,17000
+P003,Kopi Susu Pandan,Kopi Susu,20000
+P004,Kopi Susu Kelapa,KOPI SUSU,20000
+P005,Es Kopi Tanamanies,kopi susu,22000
+P006,Kopi Susu Cokelat,kopi susu,19000
+P007,Americano,Kopi Hitam,16000
+P008,V60 Gayo,Kopi Hitam,25000
+P009,Japanese Iced Coffee,Kopi hitam ,24000
+P010,Long Black,Kopi Hitam,17.000
+P011,Matcha Latte,Non-Kopi,24000
+P012,Chocolate Signature,Non-Kopi,22000
+P013,Red Velvet Latte,Non-Kopi,21000
+P014,Teh Tarik,NONKOPI,18000
+P015,Lemon Tea,Non-Kopi,14000
+P016,Lychee Sparkling,Non-Kopi,20000
+P017,Butterscotch Latte,Signature,26000
+P018,Es Kopi Daun Mint,Signature,24000
+P019,Pandan Coffee,Signature,25000
+P020,Kopi Kelapa Muda,Signature,28000
+P021,Butter Croissant,Pastry,22000
+P022,Choco Croissant,Pastry,23000
+P023,Cinnamon Roll,Pastry,24000
+P024,Banana Cake,Pastry,18000
+P025,French Fries,Snack,18000
+P026,Chicken Katsu,Snack,25000
+P027,Pisang Goreng Keju,Snack,20000
+P028,Roti Bakar Tanamanies,SNACK,17000
+L001,ES KOPI TANAMANIES,Kopi Susu,22000
+L002,kopi susu aren,kopi susu,18000
+L003,Matcha Latte ,NonKopi,24.000
+L004,Butter Croisant,Pastry,22000
+L005,Teh Tarik,non kopi,18000
+L006,Cinamon Roll,Pastry ,24.000
