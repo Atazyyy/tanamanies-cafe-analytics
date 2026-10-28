@@ -28,7 +28,7 @@ Pipeline pembersihan Python (pandas) ──► Laporan Kualitas Data (audit trai
 Database analitik DuckDB (fact & dim + 6 view SQL)
         │
         ├──► Dashboard performa (Streamlit + Plotly) — untuk manajemen
-        └──► MCP server — agar AI assistant (Claude Code) bisa query data untuk tiap divisi
+        └──► MCP server — agar AI assistant (klien MCP apa pun) bisa query data untuk tiap divisi
 ```
 
 ## Kegunaan / apa yang didemonstrasikan
@@ -41,7 +41,7 @@ Database analitik DuckDB (fact & dim + 6 view SQL)
 | **SQL & arsitektur database** | DuckDB: tabel `fact_sales` + `dim_product` + `dim_outlet`, 6 view analitik dengan JOIN & agregasi (`sql/views.sql`) |
 | **Dashboard dengan angka akurat** | KPI + tren omzet, perbandingan outlet, produk terlaris, heatmap jam ramai, komposisi pembayaran — VOID/REFUND dikecualikan dari omzet |
 | **Kualitas data yang bisa diaudit** | Setiap perbaikan dicatat: 479 duplikat dihapus, 4.355 ID legacy dipetakan, 2.715 ID hilang dipulihkan lewat nama → [docs/laporan_kualitas_data.md](docs/laporan_kualitas_data.md) |
-| **Akses data via AI (MCP)** | [src/mcp_server.py](src/mcp_server.py) menyediakan tool `ringkasan_periode`, `top_produk`, `penjualan_harian`, `jalankan_sql` (read-only) untuk Claude Code |
+| **Akses data via AI (MCP)** | [src/mcp_server.py](src/mcp_server.py) menyediakan tool `ringkasan_periode`, `top_produk`, `penjualan_harian`, `jalankan_sql` (read-only) untuk klien MCP (Claude Desktop, Cursor, ZCode, dll.) |
 | **Testing** | 42 unit test pytest untuk semua aturan cleansing (`tests/`) |
 
 ![Kualitas Data](docs/screenshot-kualitas.png)
@@ -85,9 +85,9 @@ Buat file `.mcp.json` di root project:
 }
 ```
 
-Lalu di Claude Code cukup tanya: *"Bandingkan omzet 3 outlet bulan Agustus, lalu produk apa yang
-paling menopang Dago?"* — assistant memanggil tool yang tersedia dan menjawab dari database yang
-sudah dibersihkan. Keamanan: database dibuka **read-only**, `jalankan_sql` hanya menerima
+Lalu di klien MCP-mu (Claude Desktop, Cursor, ZCode, atau klien lain yang mendukung format ini)
+cukup tanya: *"Bandingkan omzet 3 outlet bulan Agustus, lalu produk apa yang paling menopang Dago?"*
+— assistant memanggil tool yang tersedia dan menjawab dari database yang sudah dibersihkan. Keamanan: database dibuka **read-only**, `jalankan_sql` hanya menerima
 `SELECT`/`WITH`, hasil dibatasi 200 baris.
 
 ### Contoh query SQL manual
@@ -111,6 +111,17 @@ Di lokal yang sudah punya `data/tanamanies.duckdb`, auto-bootstrap ini tidak per
 
 > Catatan: MCP server tidak ikut di-deploy — ia berjalan lokal, terhubung ke AI assistant
 > di mesin yang sama dengan database-nya.
+
+### Cara menghentikan
+
+| Yang ingin dihentikan | Caranya |
+|---|---|
+| **Dashboard lokal** | `Ctrl+C` di terminal tempat Streamlit berjalan. Bisa dijalankan lagi kapan saja. |
+| **Dashboard versi cloud** | [share.streamlit.io](https://share.streamlit.io) → app `tanamanies-cafe-analytics` → menu **⋮ → Reboot** (restart) atau **Delete app** (matikan permanen). App yang tidak dipakai juga otomatis *sleep*, dan bangun sendiri saat dibuka. |
+| **MCP server** | Tutup klien MCP-nya, atau hentikan proses Python-nya. Server hanya hidup selama klien memanggilnya. |
+| **Data & database lokal** | Hapus folder `data/` (database DuckDB + parquet). Semua bisa dibangun ulang dengan seed tetap: `python -m src.run_all --with-data`. |
+
+Tidak ada proses yang berjalan di latar belakang dan tidak ada biaya berjalan — semua komponen hanya aktif saat dipakai.
 
 ## Struktur repo
 
@@ -150,4 +161,4 @@ yang diperbaiki dan dengan cara apa, serta berapa yang dibuang.
 ---
 
 Dibuat oleh [Agni Miftah Fauzi](https://github.com/Atazyyy) — AI Specialist / AI Systems.
-Dikembangkan bersama AI coding assistant (Claude Code). Portfolio: [atapdigital.id](https://atapdigital.id)
+Dikembangkan bersama AI coding assistant (ZCode) — arsitektur, keputusan desain, pengujian, dan verifikasi hasil dilakukan sendiri. Portfolio: [atapdigital.id](https://atapdigital.id)

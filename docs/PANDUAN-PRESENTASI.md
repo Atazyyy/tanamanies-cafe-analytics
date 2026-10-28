@@ -30,7 +30,7 @@ perusahaan F&B multi-outlet yang butuh pipeline data harian, dashboard, dan AI i
 
 ## 3. Demo MCP (jika waktu ada / sesi teknis)
 
-Buka Claude Code di folder project (`.mcp.json` sudah disiapkan sesuai README), lalu ketik:
+Buka klien MCP pilihanmu di folder project (`.mcp.json` sesuai README — Claude Desktop, Cursor, maupun ZCode), lalu ketik:
 
 - *"Bandingkan omzet ketiga outlet bulan Agustus 2026."*
 - *"5 produk apa yang paling menopang omzet outlet Dago?"*
@@ -51,7 +51,7 @@ Sambil assistant menjawab, sampaikan poin kuncinya:
 | "Data cleansing lintas sumber + dokumentasi" | 3 format tanggal, 16+ metode bayar, duplikat, ID legacy — semua tercatat di laporan kualitas data |
 | "Menguasai SQL (JOIN & agregasi)" | `sql/views.sql` + `queries_contoh.sql` — semua view pakai JOIN fact-dim |
 | "Git setiap hari: branch, commit, PR, review" | Ceritakan workflow-mu saat membangun ini (lihat §6) |
-| "AI coding assistant + verifikasi hasil AI" | Project ini dibangun bersama Claude Code; kamu yang memutuskan arsitektur, menulis test, dan memverifikasi. Contoh konkret: typo di test terdeteksi pytest, bug `StopIteration` di generator ketemu saat eksekusi — AI menulis, kamu yang QA |
+| "AI coding assistant + verifikasi hasil AI" | Project ini dibangun bersama AI coding assistant (ZCode); kamu yang memutuskan arsitektur, menulis test, dan memverifikasi. Contoh konkret: typo di test terdeteksi pytest, bug `StopIteration` di generator ketemu saat eksekusi — AI menulis, kamu yang QA |
 | "MCP / DuckDB (nilai plus)" | Dua-duanya ada dan dipakai nyata di project ini |
 | "Keandalan & keamanan data" | MCP read-only + guard SELECT; data mentah tidak di-commit; tidak ada data nyata di repo |
 | "Industri F&B / multi-outlet" | Simulasi ini memodelkan persis konteksnya: 3 outlet, POS berbeda, jam ramai, menu & kategori |
