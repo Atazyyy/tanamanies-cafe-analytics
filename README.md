@@ -8,6 +8,8 @@
 
 **🔗 Demo live:** [tanamanies-cafe-analytics.streamlit.app](https://tanamanies-cafe-analytics.streamlit.app) — di-deploy di Streamlit Community Cloud; data dibangun otomatis oleh aplikasi saat pertama dijalankan di cloud.
 
+**📄 Project terkait:** [Tanamanies Weekly Report](https://github.com/Atazyyy/tanamanies-weekly-report) — otomasi laporan back-office mingguan via Google Apps Script (email + Telegram) di Google Sheet.
+
 ![Dashboard Ringkasan](docs/screenshot-ringkasan.png)
 
 ## Kenapa project ini ada
