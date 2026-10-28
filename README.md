@@ -6,6 +6,8 @@
 > Seluruh data pada project ini adalah **data simulasi yang di-generate**, bukan data bisnis nyata.
 > Project ini dibuat sebagai portofolio *data pipeline + analytics + AI integration*.
 
+**🔗 Demo live:** [tanamanies-cafe-analytics-gkrt7sf8s9dbzgngq8qtks.streamlit.app](https://tanamanies-cafe-analytics-gkrt7sf8s9dbzgngq8qtks.streamlit.app) — di-deploy di Streamlit Community Cloud; data dibangun otomatis oleh aplikasi saat pertama dijalankan di cloud.
+
 ![Dashboard Ringkasan](docs/screenshot-ringkasan.png)
 
 ## Kenapa project ini ada
